@@ -17,7 +17,7 @@ class CategoryService:
         return list(map(self.get_of_orm, categories))
 
     def creat_category(self, category: CategoryCreat) -> CategorySchema:
-        new_category = self.category_repository.creat_category(category.name)
+        new_category = self.category_repository.creat_category(name=category.name)
         self.db.commit()
         return self.get_of_orm(new_category)
 

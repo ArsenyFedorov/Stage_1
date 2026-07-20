@@ -4,7 +4,9 @@ import pytest
 from sqlalchemy.orm import Session
 
 from app.repositories.task import TaskRepository
+from app.repositories.category import CategoryRepository
 from app.service.task import TaskService
+from app.service.category import CategoryService
 
 @pytest.fixture
 def db_mock() -> Mock:
@@ -12,13 +14,26 @@ def db_mock() -> Mock:
     return Mock(spec=Session)
 
 @pytest.fixture
-def repository_mock() -> Mock:
+def task_repository_mock() -> Mock:
     """Создаём мок TaskRepository один раз и переиспользуем в тестах"""
     return Mock(spec=TaskRepository)
 
 @pytest.fixture
-def service(db_mock: Mock, repository_mock: Mock) -> TaskService:
+def task_service(db_mock: Mock, task_repository_mock: Mock) -> TaskService:
     """Создаём TaskService один раз, чтобы переиспользовать в тестах"""
     task_service = TaskService(db_mock)
-    task_service.task_repository = repository_mock
+    task_service.task_repository = task_repository_mock
     return task_service
+
+@pytest.fixture
+def category_repository_mock() -> Mock:
+    """Создаём мок CategoryRepository один раз и переиспользуем в тестах"""
+    return Mock(spec=CategoryRepository)
+
+
+@pytest.fixture
+def category_service(db_mock: Mock, category_repository_mock: Mock) -> CategoryService:
+    """Создаём CategoryService один раз, чтобы переиспользовать в тестах"""
+    category_service = CategoryService(db_mock)
+    category_service.category_repository = category_repository_mock
+    return category_service
