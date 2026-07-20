@@ -1,7 +1,7 @@
-from api.dependecies import get_category_service
+from app.api.dependecies import get_category_service
 from fastapi import APIRouter, Depends, status
-from schemas.category import *
-from service.category import CategoryService
+from app.schemas.category import *
+from app.service.category import CategoryService
 
 category_router = APIRouter(prefix="/categories")
 

@@ -1,6 +1,6 @@
-from models.task import TaskORM
-from repositories.task import TaskRepository
-from schemas.task import *
+from app.models.task import TaskORM
+from app.repositories.task import TaskRepository
+from app.schemas.task import *
 from sqlalchemy.orm import Session
 
 
@@ -18,7 +18,7 @@ class TaskService:
         return list(map(self.get_of_orm, tasks))
 
     def creat_task(self, task: TaskCreat) -> TaskSchema:
-        new_task = self.task_repository.creat_task(task.title)
+        new_task = self.task_repository.creat_task(title=task.title)
         self.db.commit()
 
         return self.get_of_orm(new_task)

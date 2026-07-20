@@ -1,6 +1,6 @@
-from models.categories import CategoryORM
-from repositories.category import CategoryRepository
-from schemas.category import *
+from app.models.categories import CategoryORM
+from app.repositories.category import CategoryRepository
+from app.schemas.category import *
 from sqlalchemy.orm import Session
 
 

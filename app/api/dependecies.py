@@ -1,7 +1,7 @@
-from db.session import get_db
+from app.db.session import get_db
 from fastapi import Depends
-from service.category import CategoryService
-from service.task import TaskService
+from app.service.category import CategoryService
+from app.service.task import TaskService
 from sqlalchemy.orm import Session
 
 

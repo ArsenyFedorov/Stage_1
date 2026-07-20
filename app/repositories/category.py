@@ -1,4 +1,4 @@
-from models.categories import CategoryORM
+from app.models.categories import CategoryORM
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 

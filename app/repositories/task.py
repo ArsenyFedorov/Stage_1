@@ -1,4 +1,4 @@
-from models.task import TaskORM
+from app.models.task import TaskORM
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 

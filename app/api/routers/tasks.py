@@ -1,7 +1,7 @@
-from api.dependecies import get_task_service
+from app.api.dependecies import get_task_service
 from fastapi import APIRouter, Depends, status
-from schemas.task import TaskCreat, TaskUpdate
-from service.task import TaskService
+from app.schemas.task import TaskCreat, TaskUpdate
+from app.service.task import TaskService
 
 task_router = APIRouter(prefix="/tasks")
 

@@ -1,12 +1,11 @@
 import logging
 from itertools import count
 from time import perf_counter
-import datetime
 
-from api.routers.category import category_router
-from api.routers.tasks import task_router
-from core.config import get_settings
-from core.loging import configure_logging
+from app.api.routers.category import category_router
+from app.api.routers.tasks import task_router
+from app.core.config import get_settings
+from app.core.loging import configure_logging
 from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -70,4 +69,4 @@ def read_root():
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app="main:app", port=8080, reload=True)
+    uvicorn.run(app="app.main:app", port=8080, reload=True)
